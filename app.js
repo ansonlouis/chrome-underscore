@@ -87,7 +87,6 @@ var escapeHTML = function(text){
 
 
 getUnderscoreDetails().done(function(docs){
-  console.log("docs:", docs);
 
   var omnibox = new ChromeOmnibox({
     actions : [{
