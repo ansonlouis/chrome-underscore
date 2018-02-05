@@ -1,11 +1,11 @@
 {
   "name": "underscore",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "1.0.1",
+  "description": "A simple chrome extension to add underscore documentation to Chrome's Omnibox. This allows you to view information about Underscore's methods quickly, through Chrome's search bar, without ever opening up the Underscore page itself.",
+  "repository" : "github:ansonlouis/chrome-underscore",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chromex-omnibox": "^1.1.0"
+  }
 }

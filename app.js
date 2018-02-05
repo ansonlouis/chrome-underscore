@@ -1,5 +1,7 @@
 // app.js
 
+import { ChromexOmnibox } from './node_modules/chromex-omnibox/index.js';
+
 var underscoreUrl = "http://underscorejs.org/";
 var docs_deferred = null;
 var INDEX = {};
@@ -88,15 +90,15 @@ var escapeHTML = function(text){
 
 getUnderscoreDetails().done(function(docs){
 
-  var omnibox = new ChromeOmnibox({
+  var omnibox = new ChromexOmnibox({
     actions : [{
       word : null,
-      onSubmit : function(result){
-        var fnName = (result.suggestions.length && result.suggestions[0].content) || "";
+      onSubmit : function(session){
+        var fnName = (session.args.length && session.args[0]) || "";
         var url = underscoreUrl + "#" + fnName;
         chrome.tabs.update(this.tabId, {url : url});
       },
-      suggestions : function(currentWord, args, result){
+      suggestions : function(currentWord, args, session){
         var suggestions = [];
         searchIndex(currentWord).done(function(results){
           results.forEach(function(result){
